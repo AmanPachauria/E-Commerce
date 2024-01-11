@@ -1,6 +1,7 @@
 import React from 'react'
 import Home from './pages/Home'
 import Appbar from './components/Appbar'
+import Checkout from './pages/Checkout'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 export default function App() {
@@ -8,7 +9,8 @@ export default function App() {
     <BrowserRouter>
        <Appbar />
        <Routes>
-           <Route path={"home"} element={<Home />} />
+           <Route path={"/"} element={<Home />} />
+           <Route path={"/checkout"} element={<Checkout/>} />
        </Routes>
     </BrowserRouter>
   )
