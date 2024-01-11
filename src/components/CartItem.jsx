@@ -1,6 +1,15 @@
-
+import { useDispatch } from 'react-redux';
+import { addToCart, removeFromCart } from '../redux/product/productSlice';
 
 export default function CartItem({ item }) {
+  const dispatch = useDispatch();
+  const handleIncreaseQuantity = () => {
+    dispatch(addToCart(item));
+  };
+
+  const handleDecreaseQuantity = () => {
+    dispatch(removeFromCart(item.id));
+  };
     return (
       <div className="border-b p-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
@@ -15,13 +24,15 @@ export default function CartItem({ item }) {
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <button
+          <button 
+             onClick={() => handleDecreaseQuantity()}
             className="bg-gray-300 text-gray-700 py-1 px-2 rounded-full"
           >
             -
           </button>
           <p>{item.quantity}</p>
           <button
+            onClick={() => handleIncreaseQuantity()}
             className="bg-gray-300 text-gray-700 py-1 px-2 rounded-full"
           >
             +

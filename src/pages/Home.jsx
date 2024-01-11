@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ListingItem from '../components/ListingItem';
-import { updataProducts } from '../redux/product/productSlice';
-import { useDispatch } from 'react-redux';
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -9,7 +7,7 @@ export default function Home() {
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
   const [cache, setCache] = useState({});
-  const dispatch = useDispatch();
+ 
   const [fixLoading, setFixLoading] = useState(0);
 
   useEffect(() => {
@@ -29,7 +27,6 @@ export default function Home() {
             return;
           }
           const data = await response.json();
-          dispatch(updataProducts(data));
           setCache((prevCache) => ({ ...prevCache, [page]: data }));
           setProducts((prevProducts) => [...prevProducts, ...data]);
         }
