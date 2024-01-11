@@ -43,9 +43,10 @@ export default function Home() {
   }
 
   return (
-    <div className="mt-20 p-4 flex flex-wrap justify-center gap-4">
+    <div>
+    <div className="mt-10 p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
       {!loading && products.length === 0 && (
-        <p className='text-xl text-slate-300'>No Products Available!</p>
+        <p className='text-2xl text-center text-slate-300'>No Products Available!</p>
       )}
       {loading && products.length > 0 && (
         <p className='text-4xl text-center w-full'>
@@ -55,8 +56,10 @@ export default function Home() {
       {!loading && products && products.map((product) => (
         <ListingItem key={product.id} product={product} />
       ))}
-      {!loading && products.length > 0 && products.length % 20 === 0 && (
-        <div className="flex justify-center w-full">
+      
+    </div>
+    {!loading && products.length > 0 && products.length % 20 === 0 && (
+        <div className="flex justify-center">
           <button
             onClick={onShowMoreClick}
             className='bg-blue-500 hover:bg-blue-600 text-white text-lg font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline-blue active:bg-blue-800'
@@ -65,6 +68,6 @@ export default function Home() {
           </button>
         </div>
       )}
-    </div>
+      </div>
   );
 }
