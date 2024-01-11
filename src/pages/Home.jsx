@@ -38,7 +38,7 @@ export default function Home() {
       }
     };
     fetchProducts();
-  }, [page]);
+  }, [page, cache]);
 
   const onShowMoreClick = () => {
     setPage((prevPage) => prevPage + 1);
