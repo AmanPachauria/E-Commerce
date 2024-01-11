@@ -17,7 +17,7 @@ export default function ShoppingCart() {
       <div className="flex justify-between bg-gray-800 text-white p-4 fixed bottom-0 w-full">
         <div className="flex flex-col gap-3 items-center mx-auto">
           <p>Total Items: {totalItems}</p>
-          <p>Total Price: ₹{totalPrice.toLocaleString('en-US') * 100}</p>
+          <p>Total Price: ₹{(totalPrice * 100).toLocaleString('en-US')}</p>
         </div>
         <Link to="/checkout" className="mx-auto">
           <button

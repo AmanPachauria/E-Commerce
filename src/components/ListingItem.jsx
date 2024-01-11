@@ -28,7 +28,7 @@ export default function ListingItem({ product }) {
           {product.description}
         </p>
         <p className="text-slate-500 mt-2 font-semibold">
-          ₹{product.price.toLocaleString("en-US") * 100}
+          ₹{(product.price * 100).toLocaleString("en-US")}
         </p>
         <div className="flex justify-between items-center">
           <Link to="">

@@ -11,7 +11,7 @@ export default function CartItem({ item }) {
           />
           <div>
             <p className="font-semibold">{item.title}</p>
-            <p>Price / Unit: ₹{item.price.toLocaleString('en-US') * 100}</p>
+            <p>Price / Unit: ₹{(item.price * 100).toLocaleString('en-US')}</p>
           </div>
         </div>
         <div className="flex items-center gap-4">
