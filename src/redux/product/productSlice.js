@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   products: [],
@@ -7,14 +7,18 @@ const initialState = {
 };
 
 const productSlice = createSlice({
-  name: "cart",
+  name: 'cart',
   initialState,
   reducers: {
+    updataProducts: (state, action) => {
+       state.products = action.payload
+    },
     addToCart: (state, action) => {
+      console.log("after dispatch", action.payload);
       const { id, image, price, title } = action.payload;
-      const existingProduct = state.products.find(
-        (product) => product.id === id
-      );
+      const existingProduct = state.products.find((product) => product.id === id);
+      console.log("after dispatch2", action.payload);
+
       if (existingProduct) {
         existingProduct.quantity++;
       } else {
@@ -23,10 +27,12 @@ const productSlice = createSlice({
       state.totalItems++;
       state.totalPrice += price;
     },
-    removeFromCart: (state, action) => {},
+    removeFromCart: (state, action) => {
+      
+    },
   },
 });
 
-export const { addToCart, removeFromCart } = productSlice.actions;
+export const { addToCart, removeFromCart, updataProducts } = productSlice.actions;
 
 export default productSlice.reducer;

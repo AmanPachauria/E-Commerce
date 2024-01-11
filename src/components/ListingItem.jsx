@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../redux/product/productSlice";
+import { addToCart } from "../redux/product/productSlice.js";
 
 export default function ListingItem({ product }) {
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
+    console.log("product befor dispatch",product);
     dispatch(addToCart(product));
   };
 
