@@ -23,7 +23,7 @@ export default function Home() {
         } else {
           const response = await fetch(`https://fakestoreapi.com/products?limit=20&page=${page}`);
           if (response.ok === false) {
-            setError("Failed to fetch products");
+            setError("Failed to fetch  products");
             return;
           }
           const data = await response.json();
